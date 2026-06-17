@@ -29,6 +29,10 @@ from config import (
     DATASET_PATH
 )
 
+from fedprox import (
+    run_fedprox
+)
+
 
 def main():
 
@@ -183,6 +187,21 @@ def main():
         )
     )
 
+    #FredProx
+
+    print(
+        "FEDPROX TRAINING :"
+    )
+
+    fedprox_results = (
+        run_fedprox(
+            dataset=dataset,
+            test_indices=test_indices,
+            client_partitions=client_partitions,
+            device=device
+        )
+    )
+
     # Final Summary
 
     print(
@@ -203,6 +222,11 @@ def main():
     print(
         f"FedAvg : "
         f"{fedavg_results['best_accuracy']:.2f}%"
+    )
+    
+    print(
+        f"FedProx : "
+        f"{fedprox_results['best_accuracy']:.2f}%"
     )
 
 

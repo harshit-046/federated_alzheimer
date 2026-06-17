@@ -99,14 +99,23 @@ def train_with_dp(
         len(train_loader)
     )
 
+    if hasattr(model, "_module"):
+
+        weights = (
+            model._module.state_dict()
+        )
+
+    else:
+
+        weights = (
+            model.state_dict()
+        )
+
     return {
 
-        "weights":
-            model.state_dict(),
+        "weights": weights,
 
-        "loss":
-            avg_loss,
+        "loss": avg_loss,
 
-        "epsilon":
-            epsilon
+        "epsilon": epsilon
     }

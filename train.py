@@ -190,8 +190,8 @@ def main():
             device=device
         )
     )
-
-    #FredProx
+    
+    # FredProx
 
     print(
         "FEDPROX TRAINING :"

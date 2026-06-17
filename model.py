@@ -1,5 +1,3 @@
-# model.py
-
 import torch
 import torch.nn as nn
 
@@ -10,10 +8,8 @@ from torchvision.models import (
 
 from config import NUM_CLASSES
 
-# --------------------------------------------------
 # Opacus is optional
 # Project should run even if opacus is not installed
-# --------------------------------------------------
 
 try:
 
@@ -81,9 +77,7 @@ def get_model(pretrained=True):
         )
     )
 
-    # ------------------------------------
     # Opacus Compatibility
-    # ------------------------------------
 
     if OPACUS_AVAILABLE:
 

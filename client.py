@@ -1,5 +1,3 @@
-# client.py
-
 import copy
 
 import torch
@@ -49,9 +47,7 @@ class FederatedClient:
             shuffle=True
         )
 
-    # ---------------------------------
     # Clone global model
-    # ---------------------------------
 
     def get_local_model(
         self,
@@ -68,9 +64,7 @@ class FederatedClient:
 
         return local_model
 
-    # ---------------------------------
     # Standard Local Training
-    # ---------------------------------
 
     def train(
         self,
@@ -145,9 +139,7 @@ class FederatedClient:
                 self.num_samples
         }
 
-    # ---------------------------------
     # Local Evaluation
-    # ---------------------------------
 
     def evaluate(
         self,

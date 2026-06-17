@@ -1,5 +1,3 @@
-# server.py
-
 import copy
 
 from model import get_model
@@ -24,17 +22,13 @@ class FederatedServer:
             self.device
         )
 
-    # ---------------------------------
     # Get Global Model
-    # ---------------------------------
 
     def get_global_model(self):
 
         return self.global_model
 
-    # ---------------------------------
     # Get Global Weights
-    # ---------------------------------
 
     def get_global_weights(self):
 
@@ -42,9 +36,7 @@ class FederatedServer:
             self.global_model.state_dict()
         )
 
-    # ---------------------------------
     # Set Global Weights
-    # ---------------------------------
 
     def set_global_weights(
         self,
@@ -55,9 +47,7 @@ class FederatedServer:
             weights
         )
 
-    # ---------------------------------
     # FedAvg Aggregation
-    # ---------------------------------
 
     def aggregate(
         self,
@@ -128,9 +118,7 @@ class FederatedServer:
             global_weights
         )
 
-    # ---------------------------------
     # Average Client Loss
-    # ---------------------------------
 
     def average_loss(
         self,

@@ -1,5 +1,3 @@
-# fedavg.py
-
 import random
 
 import torch
@@ -97,9 +95,7 @@ def run_fedavg(
 
     best_accuracy = 0
 
-    # --------------------------
     # Federated Rounds
-    # --------------------------
 
     for round_num in range(
         NUM_ROUNDS

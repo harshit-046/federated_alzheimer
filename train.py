@@ -1,5 +1,3 @@
-# train.py
-
 from dataset import (
     load_dataset,
     create_train_test_split
@@ -34,9 +32,7 @@ from config import (
 
 def main():
 
-    # -------------------------
     # Setup
-    # -------------------------
 
     seed_everything()
 
@@ -46,9 +42,7 @@ def main():
         f"\nUsing Device: {device}"
     )
 
-    # -------------------------
     # Load Dataset
-    # -------------------------
 
     dataset = load_dataset(
         DATASET_PATH
@@ -59,9 +53,7 @@ def main():
         f"{len(dataset)}"
     )
 
-    # -------------------------
     # Train/Test Split
-    # -------------------------
 
     train_indices, test_indices = (
         create_train_test_split(
@@ -79,9 +71,7 @@ def main():
         f"{len(test_indices)}"
     )
 
-    # -------------------------
     # Create Train Wrapper
-    # -------------------------
 
     train_labels = [
 
@@ -111,9 +101,7 @@ def main():
         )
     )
 
-    # -------------------------
     # Non-IID Partition
-    # -------------------------
 
     local_client_partitions = (
         dirichlet_partition(
@@ -126,10 +114,8 @@ def main():
         local_client_partitions
     )
 
-    # -------------------------
     # Convert Local Indices
     # To Original Dataset Indices
-    # -------------------------
 
     client_partitions = []
 
@@ -148,20 +134,10 @@ def main():
             global_partition
         )
 
-    # -------------------------
     # Centralized Baseline
-    # -------------------------
 
     print(
-        "\n===================="
-    )
-
-    print(
-        "CENTRALIZED TRAINING"
-    )
-
-    print(
-        "===================="
+        "CENTRALIZED TRAINING :"
     )
 
     centralized_results = (
@@ -173,20 +149,10 @@ def main():
         )
     )
 
-    # -------------------------
     # Siloed Baseline
-    # -------------------------
 
     print(
-        "\n===================="
-    )
-
-    print(
-        "SILOED TRAINING"
-    )
-
-    print(
-        "===================="
+        "SILOED TRAINING :"
     )
 
     siloed_results = (
@@ -200,20 +166,10 @@ def main():
         )
     )
 
-    # -------------------------
     # FedAvg
-    # -------------------------
 
     print(
-        "\n===================="
-    )
-
-    print(
-        "FEDAVG TRAINING"
-    )
-
-    print(
-        "===================="
+        "FEDAVG TRAINING :"
     )
 
     fedavg_results = (
@@ -227,21 +183,12 @@ def main():
         )
     )
 
-    # -------------------------
     # Final Summary
-    # -------------------------
 
     print(
-        "\n===================="
+        "FINAL RESULTS :"
     )
 
-    print(
-        "FINAL RESULTS"
-    )
-
-    print(
-        "===================="
-    )
 
     print(
         f"\nCentralized : "

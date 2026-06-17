@@ -84,6 +84,9 @@ def get_model(pretrained=True):
         model = ModuleValidator.fix(
             model
         )
+        model = disable_inplace_relu(
+            model
+        )
 
     return model
 
@@ -187,3 +190,16 @@ def is_opacus_ready(model):
     return ModuleValidator.is_valid(
         model
     )
+
+def disable_inplace_relu(model):
+
+    for module in model.modules():
+
+        if isinstance(
+            module,
+            nn.ReLU
+        ):
+
+            module.inplace = False
+
+    return model

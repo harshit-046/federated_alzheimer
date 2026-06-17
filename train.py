@@ -33,6 +33,10 @@ from fedprox import (
     run_fedprox
 )
 
+from fedavg_dp import (
+    run_dp_fedavg
+)
+
 
 def main():
 
@@ -202,6 +206,23 @@ def main():
         )
     )
 
+
+    # DP-FedAvg
+
+    print(
+        "DP-FEDAVG TRAINING"
+    )
+
+    dp_results = (
+        run_dp_fedavg(
+            dataset=dataset,
+            test_indices=test_indices,
+            client_partitions=
+            client_partitions,
+            device=device
+        )
+    )
+
     # Final Summary
 
     print(
@@ -223,10 +244,15 @@ def main():
         f"FedAvg : "
         f"{fedavg_results['best_accuracy']:.2f}%"
     )
-    
+
     print(
         f"FedProx : "
         f"{fedprox_results['best_accuracy']:.2f}%"
+    )
+
+    print(
+        f"DP-FedAvg : "
+        f"{dp_results['best_accuracy']:.2f}%"
     )
 
 

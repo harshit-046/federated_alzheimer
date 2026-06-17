@@ -114,7 +114,11 @@ class FedProxClient(
         avg_loss = (
             total_loss
             /
-            len(self.loader)
+            (
+                len(self.loader)
+                *
+                LOCAL_EPOCHS
+            )
         )
 
         return {

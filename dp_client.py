@@ -1,7 +1,7 @@
 # dp_client.py
 
 import copy
-
+from dp_model import DPCNN
 from client import (
     FederatedClient
 )
@@ -20,8 +20,11 @@ class DPClient(
         global_model
     ):
 
-        model = self.get_local_model(
-            global_model
+        # model = self.get_local_model(
+        #     global_model
+        # )
+        model = DPCNN().to(
+            self.device
         )
 
         results = (

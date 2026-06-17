@@ -2,8 +2,8 @@
 
 import random
 
-from server import (
-    FederatedServer
+from dp_server import (
+    DPServer
 )
 
 from dp_client import (
@@ -31,10 +31,8 @@ def run_dp_fedavg(
         "\nStarting DP-FedAvg\n"
     )
 
-    server = (
-        FederatedServer(
-            device
-        )
+    server = DPServer(
+        device
     )
 
     clients = []
